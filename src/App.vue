@@ -1,28 +1,88 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="nightmode">
+    <HomePage msg="Welcome to Your Vue.js App" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HomePage from "./components/HomePage.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    HomePage,
+  },
+};
 </script>
 
 <style>
-#app {
+/* #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+} */
+
+@media (max-width: 360px) {
+  header .title {
+    font-size: 22px;
+    letter-spacing: 0.1rem;
+  }
+}
+
+#board-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  overflow: hidden;
+}
+#board {
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  grid-gap: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.nightmode {
+  --color-tone-1: #d7dadc;
+  --color-tone-2: #818384;
+  --color-tone-3: #565758;
+  --color-tone-4: #3a3a3c;
+  --color-tone-5: #272729;
+  --color-tone-6: #1a1a1b;
+  --color-tone-7: #121213;
+  --opacity-50: rgba(0, 0, 0, 0.5);
+  --green: #6aaa64;
+  --darkendGreen: #538d4e;
+  --yellow: #c9b458;
+  --darkendYellow: #b59f3b;
+  --lightGray: #d8d8d8;
+  --gray: #86888a;
+  --darkGray: #939598;
+  --white: #fff;
+  --black: #212121;
+  --orange: #f5793a;
+  --blue: #85c0f9;
+  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  --header-height: 50px;
+  --keyboard-height: 200px;
+  --game-max-width: 500px;
+  --color-present: var(--darkendYellow);
+  --color-correct: var(--darkendGreen);
+  --color-absent: var(--color-tone-4);
+  --tile-text-color: var(--color-tone-1);
+  --key-text-color: var(--color-tone-1);
+  --key-evaluated-text-color: var(--color-tone-1);
+  --key-bg: var(--color-tone-2);
+  --key-bg-present: var(--color-present);
+  --key-bg-correct: var(--color-correct);
+  --key-bg-absent: var(--color-absent);
+  --modal-content-bg: var(--color-tone-7);
+
+  background-color: var(--color-tone-7) !important;
 }
 </style>
