@@ -29,14 +29,18 @@ export default {
     display: grid;
     grid-template-rows: repeat(6, 1fr);
     grid-gap: 5px;
-    padding: 10px;
+    padding: 25px;
     box-sizing: border-box;
 }
+
 .board-container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-grow: 1;
     overflow: hidden;
+
 }
+
+
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="board-container">
     <div class="board" style="width: 350px">
-      STATS: Permuations:{{ wordle.length ** 26 }}
+      numberOfCombinations:{{ numberOfCombinations }}
     </div>
   </div>
 </template>
@@ -9,7 +9,7 @@
 <script>
 export default {
   props: {
-    wordle: String,
+    numberOfCombinations: Number,
   },
   components: {},
   name: "Stats",

@@ -1,21 +1,58 @@
+import { Tile } from "../models/Tile";
+
 export class GameBoard {
-    constructor(Tile) {
+    constructor() {
         this.NUMROWS = 6;
         this.NUMCOLS = 5;
         // Max number of charters the board can hold
-        this.MAXNUMOFCHAR = 5 * 6
+        this.MAXNUMOFCHAR = this.NUMCOLS  * this.NUMCOLS
+
         // tile colors 
         this.COLOR_PRESENT = "#b59f3b"
         this.COLOR_ABESNT = "#3a3a3c"
         this.COLOR_CORRECT = "#538d4e"
         this.COLOR_EMPTY = "#121213"
+
+        // grid 
         this.board = [];
         this.insertion = 0
         this.idToRowCol = []
-        this.initBoard(Tile)
+        this.initBoard()
+
+        // wordle combinations 
+        this.MAXWORDLEN = this.NUMCOLS;
+        this.ALPHABET = "abcdefghijklmnopqrstuvwxyz";
+        this.wordle = [];
+        this.numberOfCombinations;
+        this.intWordleElements();
+        this.calculateCombinationCount(); 
 
     }
-    initBoard(Tile) {
+    intWordleElements(){
+        for(let i = 0; i<this.MAXWORDLEN; i++){
+            this.wordle.push(this.ALPHABET)
+        }
+    }
+
+    calculateCombinations(){
+        // this.wordle.forEach(s=>{
+            
+        // })
+    }
+    // returns the total number of possible combination
+    calculateCombinationCount(){
+        console.log("calculate combinations")
+        let value = 1;
+        console.log(this.wordle)
+        this.wordle.forEach(el=>{
+            console.log(el.length)
+            // console.log(index)
+            value = el.length * value 
+        })
+        this.numberOfCombinations = value
+    }
+
+    initBoard() {
         // create 6X5 tiles
         for (let i = 0; i < this.NUMROWS; i++) {
             let row = [];
@@ -78,13 +115,13 @@ export class GameBoard {
         console.log("enter event");
     }
     charEvent(value) {
-        console.log("char event")
+        console.log("char event - updating wordle")
         const { i, j } = this.idToRowCol[this.insertion];
         this.board[i][j].setChar(value)
         this.updateBoardTileState(i, j, "absent")
         this.insertion++
     }
-    updateBoardTileValue(id, value) {
+    updateBoardTileValue(value) {
         if (value == "backspace") {
             this.backspaceEvent();
 
@@ -96,9 +133,4 @@ export class GameBoard {
         console.log('insertion(after event): ' + this.insertion)
         console.log(value);
     }
-
-
-
-
-
 }

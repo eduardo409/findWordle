@@ -1,5 +1,8 @@
 <template>
   <div id="app" class="nightmode">
+    <header>
+      <div class="title">FIND WORDLE</div>
+    </header>
     <HomePage msg="Welcome to Your Vue.js App" />
   </div>
 </template>
@@ -24,6 +27,12 @@ export default {
   color: #2c3e50;
 } */
 
+@media (min-width: 415px) {
+  header {
+    padding: 0px 16px;
+  }
+}
+
 @media (max-width: 360px) {
   header .title {
     font-size: 22px;
@@ -31,22 +40,32 @@ export default {
   }
 }
 
-#board-container {
+header {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
-  flex-grow: 1;
-  overflow: hidden;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  padding: 0 16px;
+  height: var(--header-height);
+  color: var(--color-tone-1);
+  border-bottom: 1px solid var(--color-tone-4);
 }
-#board {
-  display: grid;
-  grid-template-rows: repeat(6, 1fr);
-  grid-gap: 5px;
-  padding: 10px;
-  box-sizing: border-box;
+
+header .title {
+  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 37px;
+  line-height: 100%;
+  letter-spacing: 0.01em;
+  text-align: center;
+  left: 0;
+  right: 0;
+  pointer-events: none;
 }
 
 .nightmode {
+  height: 100%;
   --color-tone-1: #d7dadc;
   --color-tone-2: #818384;
   --color-tone-3: #565758;
