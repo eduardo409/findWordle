@@ -1,5 +1,6 @@
 <template>
   <div id="game">
+    <MyModal :wordle="wordleBoard.wordle"/>
     <!-- <Stats :numberOfCombinations="wordleBoard.numberOfCombinations" /> -->
     <Board
       @update-board-event="boardTileClicked"
@@ -16,12 +17,15 @@ import Board from "./Board.vue";
 // import PermBoard from "./PermBoard.vue";
 import Keyboard from "./Keyboard.vue";
 import { GameBoard } from "../models/GameBoard";
+import  MyModal from "./MyModal.vue"
+
 export default {
   components: {
     // Stats,
     Board,
     // PermBoard,
     Keyboard,
+    MyModal
   },
   name: "HomePage",
   props: {
@@ -44,6 +48,7 @@ export default {
     },
   },
   created() {
+    console.log("created")
     this.wordleBoard = new GameBoard();
   },
 };
