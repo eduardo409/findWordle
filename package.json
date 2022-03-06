@@ -5,9 +5,11 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "test": "mocha"
   },
   "dependencies": {
+    "chai": "^4.3.6",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
     "vue-js-modal": "^2.0.1"
@@ -19,6 +21,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "mocha": "^9.2.1",
     "vue-template-compiler": "^2.6.11"
   }
 }

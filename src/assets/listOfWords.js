@@ -1,4 +1,4 @@
-export var set1=["cigar",
+var set1=["cigar",
 "rebut",
 "sissy",
 "humph",
@@ -2306,9 +2306,8 @@ export var set1=["cigar",
 "rower",
 "artsy",
 "rural",
-"shave"],
-
-export var set2 =["aahed",
+"shave",
+"aahed",
 "aalii",
 "aargh",
 "aarti",
@@ -12946,3 +12945,5 @@ export var set2 =["aahed",
 "zygon",
 "zymes",
 "zymic"]
+
+module.exports = set1;

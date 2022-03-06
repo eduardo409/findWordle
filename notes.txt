@@ -1,0 +1,44 @@
+notes 
+
+wordle = [a][a][a][a][a]
+
+empty []
+- absent [-a][-a][-a][-a][-a][-a]
+- present [-a][+a][+a][+a][+a][+a] (add if missing)
+- correct [a][][][][]
+
+
+absent [-a][-a][-a][-a][-a][-a]
+reset wordle to include [+a][+a][+a][+a][+a] wordle = [a][a][a][a][a]
+- empty [][][][][] do nothing
+- present [-a][+a][+a][+a][+a][+a] (add if missing)
+- correct [a][][][][]
+
+
+present [-a][+a][+a][+a][+a][+a]
+rest wordle to include [+a][-a][-a][-a][-a] wordle = [a][a][a][a][a]
+-empty [][][][][] do nothing
+-absent [-a][-a][-a][-a][-a][-a]
+-correct [a][][][][]
+
+
+correct [a][][][][]
+rest wordle to include [-a][][][][] wordle = [a][a][a][a][a]
+- empty [][][][][] do nothing
+- absent 
+- present [-a][+a][+a][+a][+a][+a] (add if missing)
+
+
+
+
+
+wordle[a]
+
+backspace event 
+insertion = 1
+
+[a][!]
+
+move insertion point back 
+get chracter 
+update wordle to empty state (add letter back)
