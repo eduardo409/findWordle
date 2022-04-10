@@ -1,8 +1,15 @@
 <template>
   <div id="game">
-    <MyModal 
-    :wordle="wordleBoard.wordle"/>
+    <!-- <modal name="my-first-modal" :adaptive="true">
+      <ComboComponent v-bind:wordle="wordleBoard.wordle" />
+    </modal> -->
+    <!-- <MyModal :wordle="wordleBoard.wordle" /> -->
     <!-- <Stats :numberOfCombinations="wordleBoard.numberOfCombinations" /> -->
+    <MyModal  
+    v-if="showModal"
+    :wordle="wordleBoard.wordle" 
+    @close-modal="showModal = false"
+    />
     <Board
       @update-board-event="boardTileClicked"
       :gameBoard="wordleBoard.board"
@@ -16,9 +23,10 @@
 import Board from "./Board.vue";
 // import Stats from "./Stats.vue";
 // import PermBoard from "./PermBoard.vue";
+import MyModal from "./MyModal.vue"
+// import ComboComponent from "./ComboComponent.vue";
 import Keyboard from "./Keyboard.vue";
 import { GameBoard } from "../models/GameBoard";
-import  MyModal from "./MyModal.vue"
 
 export default {
   components: {
@@ -26,6 +34,7 @@ export default {
     Board,
     // PermBoard,
     Keyboard,
+    // ComboComponent,
     MyModal
   },
   name: "HomePage",
@@ -36,6 +45,7 @@ export default {
     return {
       wordleBoard: Object,
       wordle: "1",
+      showModal:false,
     };
   },
   methods: {
@@ -45,11 +55,21 @@ export default {
       this.wordleBoard.tileClicked(tileId);
     },
     keyboardClicked(key) {
-      this.wordleBoard.updateBoardTileValue(key);
+      console.log("this is the character that was clicked " + key);
+      if (key == "find") {
+        this.showModal = true
+        
+      } else {
+        this.wordleBoard.updateBoardTileValue(key);
+      }
     },
+    closeModal() {
+      console.log("hi this is an emmit from modal")
+      this.showModal = false;
+    }
   },
   created() {
-    console.log("created")
+    console.log("created");
     this.wordleBoard = new GameBoard();
   },
 };
@@ -80,5 +100,10 @@ export default {
 }
 div {
   display: block;
+}
+
+.modal-container {
+      touch-action:none;
+      overscroll-behavior: contain;
 }
 </style>

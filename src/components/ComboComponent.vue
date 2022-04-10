@@ -32,8 +32,11 @@ export default {
   computed: {},
   methods: {},
   created() {
+    // new ComboCalculator(listOfValidWords);
     let calculator = new ComboCalculator(listOfValidWords);
     this.listOfRows = calculator.genListOfCombination(this.wordle);
+    console.log("creating combo component");
+    // console.log(this.listOfRows);
   },
 };
 </script>
@@ -53,5 +56,7 @@ export default {
   flex-grow: 1;
   /* overflow: hidden; */
   overflow-y: auto;
+  /* touch-action: none; */
+  /* overscroll-behavior: contain; */
 }
 </style>'

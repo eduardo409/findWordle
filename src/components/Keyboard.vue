@@ -24,7 +24,7 @@
     </div>
 
     <div class="row">
-      <button class="one-and-a-half" v-on:click="click(`enter`)">FIND</button>
+      <button class="one-and-a-half" v-on:click="click(`find`)">FIND</button>
       <button
         v-for="(key, index) in row3"
         :key="index + key"

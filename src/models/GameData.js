@@ -15,7 +15,7 @@ export class GameData{
     }
     // returns the total number of possible combination
     calculateCombinations(){
-        console.log("calculate combinations")
+        console.log("calculate combinations count ")
         let value = 1;
         console.log(this.wordle)
         this.wordle.forEach(el=>{

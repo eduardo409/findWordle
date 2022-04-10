@@ -43,7 +43,7 @@ export class GameBoard {
     }
     // returns the total number of possible combination
     calculateCombinationCount() {
-        console.log("calculate combinations")
+        console.log("calculate combinations count")
         let value = 1;
         console.log(this.wordle)
         this.wordle.forEach(el => {
@@ -121,7 +121,7 @@ export class GameBoard {
         }
     }
     enterEvent() {
-        console.log("enter event");
+        console.log("find event");
     }
     sortWordleSet(){
         this.wordle.forEach((element, idx) => {
@@ -201,10 +201,11 @@ export class GameBoard {
         if (value == "backspace") {
             this.backspaceEvent();
 
-        } else if (value == "enter") {
+        } else if (value == "find") {
             this.enterEvent();
         } else if (this.insertion < this.MAXNUMOFCHAR) {
             this.charEvent(value)
+            console.log("hihihi")
         }
         console.log('insertion(after event): ' + this.insertion)
         console.log(value);
