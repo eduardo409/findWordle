@@ -1,14 +1,8 @@
 <template>
   <div class="modal-container">
-    <button @click="show">show modal</button>t
-    <modal name="my-first-modal" >
-      <!-- <div v-for="(row, index) in data" :key="index">
-        HI
-        <ComboComponent v-bind:data="row"  />
-      </div> -->
+    <!-- <button @click="show">show modal</button> -->
+    <modal name="my-first-modal" :adaptive="true" >
         <ComboComponent v-bind:wordle="wordle"  />
-
-      <!-- {{wordle}} -->
     </modal>
   </div>
 </template>
@@ -22,6 +16,7 @@ export default {
   },
   props: {
     wordle: [],
+    showModal: Boolean
   },
   name: "MyModal",
   data: function () {
@@ -44,10 +39,10 @@ export default {
 </script>
 <style scoped>
 .modal-container {
-  display: flex;
+  /* display: flex;
   justify-content: center;
   align-items: center;
-  flex-grow: 1;
-  overflow: hidden;
+  flex-grow: 1; */
+  /* overflow: hidden; */
 }
 </style>

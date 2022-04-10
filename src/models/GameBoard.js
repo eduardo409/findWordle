@@ -1,4 +1,4 @@
-import { Tile } from "../models/Tile";
+var Tile = require('../models/Tile');
 
 export class GameBoard {
     constructor() {

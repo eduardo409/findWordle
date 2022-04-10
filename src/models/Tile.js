@@ -1,4 +1,4 @@
-export class Tile {
+class Tile {
     state;
     color;
     char;
@@ -41,3 +41,5 @@ export class Tile {
 
 
 }
+
+module.exports = Tile;

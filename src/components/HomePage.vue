@@ -1,6 +1,7 @@
 <template>
   <div id="game">
-    <MyModal :wordle="wordleBoard.wordle"/>
+    <MyModal 
+    :wordle="wordleBoard.wordle"/>
     <!-- <Stats :numberOfCombinations="wordleBoard.numberOfCombinations" /> -->
     <Board
       @update-board-event="boardTileClicked"
